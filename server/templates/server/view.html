@@ -1,0 +1,31 @@
+<title>
+    {{ header }}
+</title>
+<html>
+{% load staticfiles %}
+<head>
+    <link rel="stylesheet" href="{% static 'styles/shCore.css' %}" type="text/css">
+    <link rel="stylesheet" href="{% static 'styles/shThemeDefault.css' %}" type="text/css">
+</head>
+<body>
+  <pre class='brush:cpp'>
+  {{ code }}
+  </pre>
+  <form action="upload/" method="post">
+      {% csrf_token %}
+      <p>{{ form.non_field_errors }}</p>
+            <p>{{ form.docfile.label_tag }} {{ form.docfile.help_text }}</p>
+            <p>
+                {{ form.docfile.errors }}
+                {{ form.docfile }}
+            </p>
+      <p> your name : </p>{{ form.name }}
+      <p><input type="submit" value="submit"></p>
+  </form>
+  <script src="../../static/scripts/shCore.js"></script>
+  <script src="../../static/scripts/shBrushCpp.js"></script>
+  <script>
+      SyntaxHighlighter.all();
+  </script>
+</body>
+</html>

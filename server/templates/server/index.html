@@ -1,0 +1,7 @@
+<h2>under maintenance</h2>
+<ul>
+    {% for codeadress in codeadress_list %}
+        <li><a href="{% url 'server:code' forloop.counter %}">{{ codeadress.name }}</a></li>
+    {% endfor %}
+
+</ul>

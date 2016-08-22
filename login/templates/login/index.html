@@ -1,0 +1,30 @@
+{% load staticfiles %}
+<link rel="stylesheet" type="text/css" href="{% static 'style.css' %}">
+<script type="text/javascript" src="{% static 'jquery.js' %}"></script>
+<script src="{% static 'jquery-ui.js' %}"></script>
+<div class="login-page">
+  <div class="form">
+    <form class="register-form" method="post" action="#" id="registerform">
+        {% csrf_token %}
+        <input type="text" name="username" placeholder="username" id="register_username">
+        <input type="password" name="password" placeholder="password" id="register_password">
+        <input type="password" name="confirm" placeholder="confirm your password" id="register_confirm">
+        <input type="submit" value="create" id="register_submit_button">
+        <div class="errornote" id="register_error_message"></div>
+      <p class="message" id="switchtologin">Already registered? <a href="#">Sign In</a></p>
+    </form>
+      <form action="#" method="post" id="loginform">
+         {% csrf_token %}
+          <input type="text" name="username" id="id_username" placeholder="username">
+          <input type="password" name="password" id="id_password" placeholder="password">
+          <input type="submit" id="login_submit_button" value="submit">
+          <div class="errornote" id="login_error_message"></div>
+        <p class="message" id="switchtoregister">Not registered? <a href="#">Create an account</a></p>
+    </form>
+  </div>
+</div>
+
+<script src="{% static 'submit-login.js' %}"></script>
+
+<script src="{% static 'switch.js' %}"></script>
+<script src="{% static 'create-register.js' %}"></script>
